@@ -1,0 +1,403 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    background-color: #242439;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+
+}
+#player {
+    margin: auto;
+    position: relative;
+    width: 272px;
+    height: 435px;  
+    background-color: transparent;
+}
+
+.section {
+    background-color: #242439;
+}
+
+nav {
+    background-color: #242439;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+}
+
+#main-section nav div:first-of-type {
+    -webkit-app-region: drag;
+}
+
+.navDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: inherit;
+    width: 90%;
+}
+
+span {
+    background-color: 	#f9efd5;
+    display: inline-block;
+    width: 50%;
+    height: 4px;
+    margin: 3px;
+}
+
+.closeSectionButton {
+    width: 10px;
+    height: 10px;
+    background-color: inherit;
+    border: 0px;
+    padding: 2px;
+    margin: 0px 4px 0px 0px;
+}
+
+.fa-times, .fa-atom, .fa-minus {
+    background-color: inherit;
+    color: #f9efd5;
+    transform: scale(1.4);
+}
+
+.fa-atom {
+    transform: scale(0.5);
+}
+
+h6 {
+    font-size: 9px;
+    background-color: inherit;
+}
+
+#main, #playlist {
+    width: 95%;
+    height: 100px;
+    border: 2px groove #f9efd5;
+    margin: auto;
+    background-color: #242439;
+}
+
+#playlist {
+    height: 260px;
+    background-color: black;
+    overflow-y: scroll;
+}
+
+#upperPart {
+    background-color: inherit;
+    padding: 7px;
+    display: flex;
+}
+
+#screen {
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    border: 1px solid darkgray;
+    margin-right: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#rightUpperPart {
+    background-color: inherit;
+}
+
+#infoline {
+    width: 154px; 
+    height: 12px; 
+    background-color: black;
+    border: 1px solid darkgray;
+    white-space: nowrap;
+}
+
+#info-p {
+    font-size: 11px;
+}
+
+#track {
+    background-color: inherit;
+    width: 93.6%;
+    padding: 0px 0px 0px 8px;
+    margin-left: 0px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance : none;
+    background : #f4f0df;
+    height : 11px;
+    width : 25px;
+  }
+  
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+}
+  
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+  
+input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+  
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    /* Hides the slider so custom styles can be added */
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+}
+  
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    background: #1f1f31;
+    border: 1px solid darkgray;
+}
+  
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #000000;
+}
+  
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #000000;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #000000;;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #000000;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #000000;
+}
+
+#volumeRange {
+    width: 60px;
+    margin-top: 24px;
+}
+
+#balanceRange {
+  width: 40px;
+  margin: 24px 0px 0px 10px;
+}
+  
+#volumeRange::-webkit-slider-runnable-track, #balanceRange::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  background: #a8e343;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+}
+
+#volumeRange::-webkit-slider-thumb, #balanceRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 8px;
+  width: 15px;
+  margin-top: -2px;
+  background: #adbcc4;
+  border-top: 1px outset #d0dde1;
+  border-left: 1px outset #d0dde1;
+  border-bottom: 1px outset #8893a1;
+  border-right: 1px outset #8893a1;
+}
+
+#buttons {
+    padding: 2px 8px 0px 8px;
+    display: flex;
+    background-color: inherit;
+    justify-content: space-between;
+}
+
+#playbackControlButtons {
+    display: flex;
+}
+
+button {
+    width: 22px;
+    height: 15px;
+    background-color: #bdced6;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    font-size: 7px;
+}
+
+.fa-step-backward, .fa-play, .fa-pause, .fa-stop, .fa-step-forward, .fa-upload, .fa-redo {
+    background-color: #bdced6;
+    padding: 0px;
+    transform: scale(1.4);
+    margin-top: 2px;
+}
+
+.disabled {
+    color: gray;
+}
+
+#additionalButtons {
+    display: flex;
+}
+
+#shuffleButton {
+    width: 38px;
+}
+
+.list-item {
+    padding: 2px;
+    color: #00e900;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.currently-playing {
+    color: white;
+}
+
+.selected-item {
+    background-color: #0000c6;
+}
+
+.song-descr, .song-length {
+    background-color: inherit;
+}
+
+::-webkit-scrollbar {
+    background-color: #242439;
+    margin-right: 4px;
+    width: 14px;
+    border: 1px groove #f9efd5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f4f0df;
+}
+
+#footer {
+    background-color: inherit;
+    margin: 5px 5px 7px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-button {
+    height: 18px;
+    vertical-align: middle;
+}
+
+#footer-popups {
+    background-color: #242439;
+    display: flex;
+    z-index: 10;
+}
+
+.footer-popup {
+    background-color: inherit;
+    margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+#footer-player, #footer-player-lower-part, #footer-player-buttons, #footer-player-buttons button, #footer-player-buttons i, .footer-player-button, .footer-player-icon, .fa-arrows-alt-v, #trackStatusDiv, #currentTrackTimeDiv {
+    background-color: inherit;
+}
+
+#footer-player-lower-part {
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer-player-buttons {
+    display: flex;
+}
+
+#footer-player-buttons button {
+    width: 10px;
+    height: 9px;
+    border: 0px;
+    padding: 0;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+}
+
+
+#footer-player-buttons i, .fa-arrows-alt-v {
+    transform: scale(1.1);
+    color: #eed48b;
+}
+
+#footer-player-screen {
+    width: 95px;
+    height: 10px;
+    border: 1px groove #f9efd5;
+    font-size: 9px;
+}
+
+#footer-player-bottom-screen {
+    width: 32px;
+    height: 9px;
+    border: 1px groove #f9efd5;
+    font-size: 9px;
+}
+
+.fa-arrows-alt-v {
+    transform: scale(1.3);
+    margin: 5px 0px 0px 0px;
+    cursor: ns-resize;
+}
+
+.blackBgInscr, #footer-player-bottom-screen, #footer-player-screen, #infoline {
+    background-color: black;
+    color: #00e800;
+}
+
+.trackStatusIcon {
+    transform: scale(0.6);
+}
+
+#trackStatusDiv {
+    margin: 5px;
+}
+
+#currentTrackTimeDiv {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 3px;
+}
+
+#infoLineLengthTestDiv { 
+    visibility: hidden; 
+    white-space: nowrap; 
+    font-size: 11px;
+    height: 0px;
+    width: auto;
+    position: absolute;
+}

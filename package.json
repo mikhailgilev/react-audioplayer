@@ -1,0 +1,52 @@
+{
+  "name": "playa",
+  "version": "1.0.0",
+  "description": "an audioplayer \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[ winamp-like audioplayer in React",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack -p --watch",
+    "launch": "electron .",
+    "build": "electron-packager build Playa --platform=win32"
+  },
+  "keywords": [
+    "player",
+    "React",
+    "audio"
+  ],
+  "author": "Mikhail Gilev",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-react": "^7.9.4",
+    "electron": "^9.0.4",
+    "electron-packager": "^14.2.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/runtime": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "electron-unhandled": "^3.0.2",
+    "howler": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0"
+  },
+  "build": {
+    "appId": "12301",
+    "files": [
+      "./build/**/*",
+      "./App.js"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
