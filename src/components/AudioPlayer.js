@@ -439,7 +439,7 @@ export default class AudioPlayer extends React.Component {
     const currentSongObj = this.state.songList[this.state.currentSong - 1];
     const infoLineText = this.state.songList.length === 0 ? "" : `${this.state.currentSong}. ${currentSongObj.songName} (${currentSongObj.formattedDuration}) *** `.repeat(4);
     return (
-      <div id="player" ref={node => this.player = node} style={{ height: this.state.playerHeight + "px" }} onClick={this.closePopups}>
+      <div id="player" ref={node => this.player = node} style={{ height: this.state.playerHeight + "px" }} onClick={this.closePopups} onScroll={(event) => event.preventDefault()}>
         <div ref={node => this.testDiv = node} id="infoLineLengthTestDiv">{infoLineText}</div>
         <input type="file" ref={node => this.uploader = node} className="hidden" onChange={this.handleSongFiles} accept=".mp3, .wav, .flac" multiple />
         <MainSection
