@@ -2,13 +2,12 @@
     margin: 0; 
     padding: 0; 
     background-color: #242439;
-    overflow: hidden;
 }
 
 body::-webkit-scrollbar {
     display: none;
-
 }
+
 #player {
     margin: auto;
     position: relative;
