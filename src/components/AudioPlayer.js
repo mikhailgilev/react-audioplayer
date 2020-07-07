@@ -103,11 +103,11 @@ export default class AudioPlayer extends React.Component {
         await newSong.load();
         this.setState(prevState => ({
           songList: prevState.createNewPlaylist && x === 0 ? [newSong] : [...prevState.songList, newSong],
-          history: prevState.createNewPlaylist ? [] : prevState.history,
+          history: prevState.createNewPlaylist && x === 0 ? [] : prevState.history,
           status: prevState.createNewPlaylist && x === 0 ? "stopped" : prevState.status,
-          currentTrackPosition: prevState.createNewPlaylist ? "00:00" : prevState.currentTrackPosition,
-          currentSliderValue: prevState.createNewPlaylist ? 0 : prevState.currentSliderValue,
-          currentTrackDuration: prevState.createNewPlaylist ? "00:00" : prevState.currentTrackDuration,
+          currentTrackPosition: prevState.createNewPlaylist && x === 0 ? "00:00" : prevState.currentTrackPosition,
+          currentSliderValue: prevState.createNewPlaylist && x === 0 ? 0 : prevState.currentSliderValue,
+          currentTrackDuration: prevState.createNewPlaylist && x === 0 ? "00:00" : prevState.currentTrackDuration,
           currentSong: prevState.createNewPlaylist && x === 0 ? 1 : prevState.currentSong
         }));
       }
