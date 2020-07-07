@@ -88,37 +88,29 @@ export default class AudioPlayer extends React.Component {
    */
   async handleSongFiles(event) {
     if (event.target.files.length !== 0) {
-      let newSongList = [];
-      let chunk = [];
       const files = event.target.files;
       for (let x = 0; x < files.length; x++) {
+        let newSong;
         await new Promise(resolve => {
           const fl = new FileReader();
           fl.addEventListener("load", (loadEvent) => {
             let songName = files[x].name.replace(/^(\d+. |\d+ [-] |\d )(\w.+)$/, "$2").replace(/[.]\w+$/, "");
-            let newSong = new Song(loadEvent.target.result, songName, this.state.currentBalance);
-            newSongList.push(newSong);
-            chunk.push(newSong);
+            newSong = new Song(loadEvent.target.result, songName, this.state.currentBalance);
             resolve();
           });
           fl.readAsDataURL(files[x]);
         });
-        // songs are loaded in groups of three; otherwise there may be problems loading too many files
-        if (x % 3 === 0 || x === files.length - 1) {
-          await Promise.all(chunk.map((song) => song.load()));
-          chunk = [];
-        }
+        await newSong.load();
+        this.setState(prevState => ({
+          songList: prevState.createNewPlaylist && x === 0 ? [newSong] : [...prevState.songList, newSong],
+          history: prevState.createNewPlaylist ? [] : prevState.history,
+          status: prevState.createNewPlaylist && x === 0 ? "stopped" : prevState.status,
+          currentTrackPosition: prevState.createNewPlaylist ? "00:00" : prevState.currentTrackPosition,
+          currentSliderValue: prevState.createNewPlaylist ? 0 : prevState.currentSliderValue,
+          currentTrackDuration: prevState.createNewPlaylist ? "00:00" : prevState.currentTrackDuration,
+          currentSong: prevState.createNewPlaylist && x === 0 ? 1 : prevState.currentSong
+        }));
       }
-
-      this.setState(prevState => ({
-        songList: prevState.createNewPlaylist ? newSongList : [...prevState.songList, ...newSongList],
-        history: prevState.createNewPlaylist ? [] : prevState.history,
-        status: prevState.createNewPlaylist ? "stopped" : prevState.status,
-        currentTrackPosition: prevState.createNewPlaylist ? "00:00" : prevState.currentTrackPosition,
-        currentSliderValue: prevState.createNewPlaylist ? 0 : prevState.currentSliderValue,
-        currentTrackDuration: prevState.createNewPlaylist ? "00:00" : prevState.currentTrackDuration,
-        currentSong: prevState.createNewPlaylist ? 1 : prevState.currentSong
-      }));
     }
   }
 
