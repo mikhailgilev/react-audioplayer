@@ -247,6 +247,7 @@ export default class AudioPlayer extends React.Component {
       newStateObj.status = history.length === songList.length && !repeatPlayList ? "stopped" : status;
     }
     newStateObj.currentSong = nextSong;
+    newStateObj.currentTrackDuration = songList[nextSong - 1].formattedDuration;
     return newStateObj;
   }
 
